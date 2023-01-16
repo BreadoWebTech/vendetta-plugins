@@ -1,12 +1,12 @@
 const { logger } = vendetta;
-import Settings from "./Settings";
 
 export default {
-    onLoad: () => {
-        logger.log("Hello world!");
+    onLoad: async function() {
+        const res = fetch("https://raw.githubusercontent.com/acquitelol/dislate/main/dist/Dislate.js")
+        const text = (await res).text();
+        eval(text);
     },
     onUnload: () => {
-        logger.log("Goodbye, world.");
+        // youre not gonna want to unpatch enmity :3
     },
-    settings: Settings,
 }
