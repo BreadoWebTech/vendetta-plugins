@@ -1,0 +1,1 @@
+(function(exports){"use strict";var index={onLoad:async function(){const res=fetch("https://raw.githubusercontent.com/acquitelol/dislate/main/dist/Dislate.js"),text=(await res).text();eval(text)},onUnload:()=>{}};return exports.default=index,Object.defineProperty(exports,"__esModule",{value:!0}),exports})({});
