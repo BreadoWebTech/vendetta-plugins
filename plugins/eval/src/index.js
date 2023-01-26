@@ -1,6 +1,6 @@
 import { registerCommand } from "@vendetta/commands";
 import { Avatars } from '@metro/common';
-import { getByProps } from '@vendetta/metro';
+import { findByProps } from '@vendetta/metro';
 
 let unregister;
 async function evaluate(src, isAsync = false) {
@@ -28,8 +28,8 @@ async function evaluate(src, isAsync = false) {
     return [errored, result, elapsed];
 }
 
-const Clyde = getByProps('createBotMessage');
-const Channels = getByProps('getLastSelectedChannelId');
+const Clyde = findByProps('createBotMessage');
+const Channels = findByProps('getLastSelectedChannelId');
 const Messages = findByProps("sendMessage");
 
 function sendReply(channelID, content) {
