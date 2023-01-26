@@ -1,50 +1,50 @@
 import { registerCommand } from "@vendetta/commands";
-import { findByProps } from '@vendetta/metro';
+// import { findByProps } from '@vendetta/metro';
 
 let unregister;
-async function evaluate(src, isAsync = false) {
-    let result, errored;
-    if (isAsync || src.includes("await")) {
-        if (src.includes(";") && (!src.endsWith(";") || src.includes("\n") || (src.split(';').length) > 2)) {
-            src = `(async function() { ${src} })()`;
-        } else {
-            src = `(async function() { return ${src} })()`;
-        }
-    }
+// async function evaluate(src, isAsync = false) {
+//     let result, errored;
+//     if (isAsync || src.includes("await")) {
+//         if (src.includes(";") && (!src.endsWith(";") || src.includes("\n") || (src.split(';').length) > 2)) {
+//             src = `(async function() { ${src} })()`;
+//         } else {
+//             src = `(async function() { return ${src} })()`;
+//         }
+//     }
   
-    let start = new Date().getTime();
-    try {
-        result = eval(src);
-        if (result instanceof Promise) {
-            result = await result;
-        }
-    } catch(e) {
-        result = e;
-        errored = true;
-    }
+//     let start = new Date().getTime();
+//     try {
+//         result = eval(src);
+//         if (result instanceof Promise) {
+//             result = await result;
+//         }
+//     } catch(e) {
+//         result = e;
+//         errored = true;
+//     }
   
-    let elapsed = new Date().getTime() - start;
-    return [errored, result, elapsed];
-}
+//     let elapsed = new Date().getTime() - start;
+//     return [errored, result, elapsed];
+// }
 
-const Clyde = findByProps('createBotMessage');
-const Channels = findByProps('getLastSelectedChannelId');
-const Messages = findByProps("sendMessage");
+// const Clyde = findByProps('createBotMessage');
+// const Channels = findByProps('getLastSelectedChannelId');
+// const Messages = findByProps("sendMessage");
 
-function sendReply(channelID, content) {
-  const channel = channelID ?? Channels?.getChannelId?.();
-  const msg = Clyde.createBotMessage({ channelId: channel, content: '' });
+// function sendReply(channelID, content) {
+//   const channel = channelID ?? Channels?.getChannelId?.();
+//   const msg = Clyde.createBotMessage({ channelId: channel, content: '' });
 
-  msg.author.username = 'Vendetta';
+//   msg.author.username = 'Vendetta';
 
-  if (typeof content === 'string') {
-    msg.content = content;
-  } else {
-    Object.assign(msg, content);
-  }
+//   if (typeof content === 'string') {
+//     msg.content = content;
+//   } else {
+//     Object.assign(msg, content);
+//   }
 
-  Messages.receiveMessage(channel, msg);
-}
+//   Messages.receiveMessage(channel, msg);
+// }
 
 export default {
   onLoad: () => {
