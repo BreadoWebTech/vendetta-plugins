@@ -3,7 +3,7 @@
        "dist/*",
        "dist"
     ],
-    "exec": "clear && npm run build",
+    "exec": "clear && pnpm run build",
     "ext": "*.*"
  }
  

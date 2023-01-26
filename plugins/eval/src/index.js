@@ -49,7 +49,7 @@ function sendReply(channelID, content) {
 export default {
   onLoad: () => {
     unregister = registerCommand({
-        applicationId: -1, // Built in category. do not change or it will explod
+        applicationId: "-1",
 
         name: "eval",
         displayName: "eval",
