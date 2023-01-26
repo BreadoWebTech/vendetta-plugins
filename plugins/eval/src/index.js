@@ -1,5 +1,4 @@
 import { registerCommand } from "@vendetta/commands";
-import { Avatars } from '@metro/common';
 import { findByProps } from '@vendetta/metro';
 
 let unregister;
@@ -36,11 +35,7 @@ function sendReply(channelID, content) {
   const channel = channelID ?? Channels?.getChannelId?.();
   const msg = Clyde.createBotMessage({ channelId: channel, content: '' });
 
-  msg.author.username = username ?? 'Vendetta';
-
-  if (avatarURL) {
-    Avatars.BOT_AVATARS[username] = avatarURL;
-  }
+  msg.author.username = 'Vendetta';
 
   if (typeof content === 'string') {
     msg.content = content;
