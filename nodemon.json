@@ -1,0 +1,9 @@
+{
+    "ignore": [
+       "dist/*",
+       "dist"
+    ],
+    "exec": "clear && npm run build",
+    "ext": "*.*"
+ }
+ 
