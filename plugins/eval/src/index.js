@@ -95,14 +95,19 @@ export default {
                 required: true,
             },
         ],
-        execute: async function (args, message) {
+        // execute: async function (args, message) {
+        //     const type = args.find(o => o.name == "type").value
+        //     const src = args.find(o => o.name == "source").value
+        //     const [error, result, elapsed] = await evaluate(src, type);
+        //     sendReply(message.channel.id, [
+        //         `${error ? "Failed executing" : "Successfully executed"} in ${elapsed}ms`,
+        //         `\`\`\`js\n${result}\n\`\`\``
+        //     ].join('\n'))
+        // }
+        execute: function() {
             const type = args.find(o => o.name == "type").value
             const src = args.find(o => o.name == "source").value
-            const [error, result, elapsed] = await evaluate(src, type);
-            sendReply(message.channel.id, [
-                `${error ? "Failed executing" : "Successfully executed"} in ${elapsed}ms`,
-                `\`\`\`js\n${result}\n\`\`\``
-            ].join('\n'))
+            console.log("Successfully ran command with ", type, src)
         }
     });
   },
